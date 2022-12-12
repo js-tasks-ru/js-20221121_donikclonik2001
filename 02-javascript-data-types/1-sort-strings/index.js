@@ -5,7 +5,7 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  let resultArr = [...arr];
+  const resultArr = [...arr];
   switch (param) {
     case 'asc': {
       resultArr.sort((a, b) => {
@@ -19,7 +19,7 @@ export function sortStrings(arr, param = 'asc') {
       });
       break;
     }
-    default: resultArr = undefined;
+    default: break;
   }
   return resultArr;
 }
