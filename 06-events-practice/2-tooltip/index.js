@@ -5,6 +5,7 @@ class Tooltip {
     if (evt.target.dataset.tooltip) {
       this.render();
       this.element.textContent = evt.target.dataset.tooltip;
+      document.addEventListener('pointermove', this.pointerMoveHandler);
     }
   }
 
@@ -16,6 +17,7 @@ class Tooltip {
   pointerOutHandler = (evt) => {
     if (evt.target.dataset.tooltip) {
       this.remove();
+      document.removeEventListener('pointermove', this.pointerMoveHandler);
     }
   }
 
@@ -29,7 +31,6 @@ class Tooltip {
 
   initialize () {
     document.addEventListener('pointerover', this.pointerOverHandler);
-    document.addEventListener('pointermove', this.pointerMoveHandler);
     document.addEventListener('pointerout', this.pointerOutHandler);
   }
 
